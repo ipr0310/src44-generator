@@ -1,18 +1,16 @@
 <script lang="ts">
 	import { descriptorTypesList } from './types';
 	import type { initialValues } from './formSchema';
+	import FieldToggler from './components/FieldToggler.svelte';
 	import TextField from './components/TextField.svelte';
 	import FileHashField from './components/FileHashField.svelte';
+	import AccountAddressField from './components/AccountAddressField.svelte';
 
 	export let data: typeof initialValues;
 	export let errors: any;
 	export let addField: any;
 	export let unsetField: any;
 	export let setData: any;
-
-	$: nameFieldError = (errors.name && errors.name[0]) || '';
-	$: descriptionFieldError = (errors.description && errors.description[0]) || '';
-	$: homePageFieldError = (errors.homePage && errors.homePage[0]) || '';
 </script>
 
 <div class="flex flex-col gap-4">
@@ -34,7 +32,7 @@
 		placeholder="Enter the name"
 		type="text"
 		maxlength={24}
-		errorText={nameFieldError}
+		errorText={(errors.name && errors.name[0]) || ''}
 	/>
 
 	<TextField
@@ -43,7 +41,7 @@
 		placeholder="Enter the description"
 		type="text"
 		maxlength={384}
-		errorText={descriptionFieldError}
+		errorText={(errors.description && errors.description[0]) || ''}
 		multiLine={true}
 	/>
 
@@ -53,7 +51,7 @@
 		placeholder="You can add the official website or any URL"
 		type="url"
 		maxlength={128}
-		errorText={homePageFieldError}
+		errorText={(errors.homePage && errors.homePage[0]) || ''}
 	/>
 
 	<div class="flex flex-col gap-2">
@@ -108,4 +106,21 @@
 		fieldMimeTypeName="backgroundMimeType"
 		{setData}
 	/>
+
+	<AccountAddressField fieldName="receiverAddress" {setData} />
+
+	<FieldToggler
+		fieldLabel="Send Rule (Advanced)"
+		onToggleField={() => {
+			setData('sendRule', '');
+		}}
+	>
+		<TextField
+			name="sendRule"
+			placeholder="E.g. /^[0-9a-fA-F]{64}$/"
+			type="text"
+			maxlength={64}
+			errorText={(errors.sendRule && errors.sendRule[0]) || ''}
+		/>
+	</FieldToggler>
 </div>

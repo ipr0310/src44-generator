@@ -12,7 +12,9 @@ export const schema = yup.object({
 	avatar: yup.string().trim(),
 	avatarMimeType: yup.string().trim(),
 	background: yup.string().trim(),
-	backgroundMimeType: yup.string().trim()
+	backgroundMimeType: yup.string().trim(),
+	receiverAddress: yup.string().trim(),
+	sendRule: yup.string().trim().max(64)
 });
 
 export const initialValues = {
@@ -24,5 +26,7 @@ export const initialValues = {
 	avatar: '',
 	avatarMimeType: '',
 	background: '',
-	backgroundMimeType: ''
+	backgroundMimeType: '',
+	receiverAddress: '',
+	sendRule: ''
 };

@@ -37,6 +37,7 @@
 	"type": "module",
 	"dependencies": {
 		"@felte/validator-yup": "^1.0.11",
+		"@signumjs/core": "^1.0.0-rc.64",
 		"@signumjs/standards": "^1.0.0-rc.64",
 		"@zerodevx/svelte-json-view": "^1.0.3",
 		"daisyui": "^2.51.5",

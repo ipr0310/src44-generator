@@ -23,9 +23,9 @@
 
 <form use:form on:submit|preventDefault>
 	<main
-		class="max-w-6xl mx-auto flex flex-row sm:flex-wrap lg:flex-nowrap gap-4 items-start justify-between p-4 mt-10"
+		class="max-w-6xl mx-auto flex flex-row flex-wrap lg:flex-nowrap gap-4 items-start justify-between p-4 mt-10"
 	>
-		<section class="flex flex-col rounded-xl border-2 p-4 sm:w-full lg:w-6/12">
+		<section class="flex flex-col rounded-xl border-2 p-4 w-full lg:w-6/12">
 			<h4 class="text-2xl font-medium leading-tight">Basic SRC44 Generator</h4>
 
 			<h5 class="text-base leading-tight">
@@ -38,7 +38,7 @@
 			<FormFields data={$data} errors={$errors} {addField} {unsetField} {setData} />
 		</section>
 
-		<section class="rounded-xl border-2 p-4 sm:w-full lg:w-6/12 bg-slate-50">
+		<section class="rounded-xl border-2 p-4 w-full lg:w-6/12 bg-slate-50">
 			<ContentRenderer data={$data} isValid={$isValid} />
 		</section>
 	</main>
