@@ -1,15 +1,17 @@
 <script lang="ts">
-	export let label: string;
-	export let placeholder: string;
+	export let label = '';
+	export let placeholder = '';
 	export let type = 'text';
 	export let name: string;
 	export let errorText: string;
-	export let maxlength: number;
+	export let maxlength = 524288;
 	export let multiLine = false;
 </script>
 
-<div class="form-control gap-1">
-	<span class="label-text">{label}</span>
+<div class="w-full form-control gap-1">
+	{#if label}
+		<span class="label-text">{label}</span>
+	{/if}
 
 	{#if !multiLine}
 		<input
