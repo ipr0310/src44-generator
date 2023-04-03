@@ -77,7 +77,7 @@
 			<input
 				name={fieldName}
 				on:input={handleInput}
-				placeholder="Enter your preferred social media platform URL"
+				placeholder="Enter the IPFS CID or Hash of the picture"
 				class="input input-bordered w-full"
 			/>
 			{#if errorText} <span class="label-text-alt text-red-700">{errorText}</span>{/if}
@@ -108,4 +108,6 @@
 			{/if}
 		</div>
 	</div>
+
+	<p class="text-xl text-center">⚠️ Only IPFS CID or IPFS Hash is allowed</p>
 {/if}

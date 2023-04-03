@@ -123,4 +123,34 @@
 			errorText={(errors.sendRule && errors.sendRule[0]) || ''}
 		/>
 	</FieldToggler>
+
+	<FieldToggler
+		fieldLabel="Send Rule (Advanced)"
+		onToggleField={() => {
+			setData('sendRule', '');
+		}}
+	>
+		<TextField
+			name="sendRule"
+			placeholder="E.g. /^[0-9a-fA-F]{64}$/"
+			type="text"
+			maxlength={64}
+			errorText={(errors.sendRule && errors.sendRule[0]) || ''}
+		/>
+	</FieldToggler>
+
+	<FieldToggler
+		fieldLabel="Signum Alias (Advanced)"
+		onToggleField={() => {
+			setData('alias', '');
+		}}
+	>
+		<TextField
+			name="alias"
+			placeholder="E.g. myalias"
+			type="text"
+			maxlength={100}
+			errorText={(errors.alias && errors.alias[0]) || ''}
+		/>
+	</FieldToggler>
 </div>

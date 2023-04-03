@@ -14,7 +14,12 @@ export const schema = yup.object({
 	background: yup.string().trim(),
 	backgroundMimeType: yup.string().trim(),
 	receiverAddress: yup.string().trim(),
-	sendRule: yup.string().trim().max(64)
+	sendRule: yup.string().trim().max(64),
+	alias: yup
+		.string()
+		.nullable()
+		.max(100)
+		.matches(/^\w+(\.\w+)?$/, { message: 'Invalid field', excludeEmptyString: true })
 });
 
 export const initialValues = {
@@ -28,5 +33,6 @@ export const initialValues = {
 	background: '',
 	backgroundMimeType: '',
 	receiverAddress: '',
-	sendRule: ''
+	sendRule: '',
+	alias: ''
 };
