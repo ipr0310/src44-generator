@@ -2444,6 +2444,9 @@ html {
 .flex-col {
   flex-direction: column;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .items-start {
   align-items: flex-start;
 }
@@ -2490,6 +2493,9 @@ html {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+.font-bold {
+  font-weight: 700;
+}
 .font-medium {
   font-weight: 500;
 }
@@ -2499,16 +2505,6 @@ html {
 .text-red-700 {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
-}
-@media (min-width: 640px) {
-
-  .sm\:w-full {
-    width: 100%;
-  }
-
-  .sm\:flex-wrap {
-    flex-wrap: wrap;
-  }
 }
 @media (min-width: 1024px) {
 
