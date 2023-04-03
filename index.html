@@ -5,17 +5,17 @@
 		<link rel="icon" href="./favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_layout.72d7d97a.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/_layout.d9a49baa.css" rel="stylesheet">
 		<link href="./_app/immutable/assets/_page.4c9ef681.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.9389206d.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.ef51ad99.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.791872e8.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.6b04c049.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.5109305b.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_layout.svelte.2fc1dda9.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.d7f0b09f.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.f31782d9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.54c5a77a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.aad08cb1.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.bf00f6a7.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_layout.svelte.d9333ca3.js">
 		<link rel="modulepreload" href="./_app/immutable/entry/_layout.ts.984db11e.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout.da46b06b.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.344316a7.js"><title>Signum SRC44 Generator</title><!-- HEAD_svelte-eaf9by_START --><meta name="description" content="Generate basic SRC44 meta data to paste in account, Token/Assets, Smart Contract, Alias"><!-- HEAD_svelte-eaf9by_END -->
+		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.160d910f.js"><title>Signum SRC44 Generator</title><!-- HEAD_svelte-x2arby_START --><meta name="description" content="Generate basic SRC44 meta data to paste in account, Tokens, Smart Contract, Alias or other asset."><!-- HEAD_svelte-x2arby_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -23,9 +23,10 @@
 
 
 
-<form><main class="max-w-4xl mx-auto flex flex-row sm:flex-wrap lg:flex-nowrap gap-4 items-start justify-between p-4 mt-10"><section class="flex flex-col rounded-xl border-2 p-4 sm:w-full lg:w-6/12"><h4 class="text-2xl font-medium leading-tight">Basic SRC44 Generator</h4>
+<form><main class="max-w-6xl mx-auto flex flex-row sm:flex-wrap lg:flex-nowrap gap-4 items-start justify-between p-4 mt-10"><section class="flex flex-col rounded-xl border-2 p-4 sm:w-full lg:w-6/12"><h4 class="text-2xl font-medium leading-tight">Basic SRC44 Generator</h4>
 
-			<h5 class="text-base leading-tight">Generate basic SRC44 meta data to paste in your account description field
+			<h5 class="text-base leading-tight">Generate basic SRC44 meta data to paste in account, subscription, tokens, smart contract,
+				alias or other asset.
 			</h5>
 
 			<div class="divider"></div>
@@ -34,23 +35,38 @@
 		<select name="type" class="select select-bordered"><option value="" disabled selected>Pick one</option><option value="hum">Human Account</option><option value="smc">Smart Contract Account</option><option value="bot">Bot Account (Non Smart Contract)</option><option value="tok">Smart Token</option><option value="biz">Business Account</option><option value="cex">Centralized Exchange Account (CEX)</option><option value="dex">Decentralized Exchange Account (DEX)</option><option value="oth">Other</option></select>
 		<span class="label-text-alt">Select how you would like to categorize the content</span></div>
 
-	<div class="form-control gap-1"><span class="label-text">Name</span>
+	<div class="w-full form-control gap-1"><span class="label-text">Name</span>
 
 	<input name="name" placeholder="Enter the name" type="text" maxlength="24" class="input input-bordered w-full ">
 
 	</div>
 
-	<div class="form-control gap-1"><span class="label-text">Description</span>
+	<div class="w-full form-control gap-1"><span class="label-text">Description</span>
 
 	<textarea name="description" placeholder="Enter the description" maxlength="384" class="textarea textarea-bordered"></textarea>
 
 	</div>
 
-	<div class="form-control gap-1"><span class="label-text">Home Page</span>
+	<div class="w-full form-control gap-1"><span class="label-text">Home Page</span>
 
-	<input name="homePage" placeholder="Enter the homepage" type="url" maxlength="128" class="input input-bordered w-full ">
+	<input name="homePage" placeholder="You can add the official website or any URL" type="url" maxlength="128" class="input input-bordered w-full ">
 
-	</div></div></section>
+	</div>
+
+	<div class="flex flex-col gap-2"><h4 class="text-lg font-medium leading-tight">Social Networks</h4>
+		
+
+		<button class="btn btn-primary btn-sm">Add</button></div>
+
+	<div class="flex flex-row justify-between items-center gap-2"><h4 class="text-lg font-medium leading-tight">Avatar (Advanced)</h4>
+	<button class="btn btn-sm">Show Field</button></div>
+
+
+
+	<div class="flex flex-row justify-between items-center gap-2"><h4 class="text-lg font-medium leading-tight">Background Image (Advanced)</h4>
+	<button class="btn btn-sm">Show Field</button></div>
+
+</div></section>
 
 		<section class="rounded-xl border-2 p-4 sm:w-full lg:w-6/12 bg-slate-50"><span class="_jsonBkt svelte-mhivgo" role="button" tabindex="0">{</span>
   <ul class="_jsonList svelte-mhivgo"><li><span class="_jsonKey svelte-mhivgo">&quot;vs&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
@@ -64,6 +80,16 @@
       </li><li><span class="_jsonKey svelte-mhivgo">&quot;description&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
         <span class="_jsonVal string svelte-mhivgo">""</span><span class="_jsonSep svelte-mhivgo">,</span>
       </li><li><span class="_jsonKey svelte-mhivgo">&quot;homePage&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
+        <span class="_jsonVal string svelte-mhivgo">""</span><span class="_jsonSep svelte-mhivgo">,</span>
+      </li><li><span class="_jsonKey svelte-mhivgo">&quot;socialNetworks&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
+        <span class="_jsonBkt empty svelte-mhivgo">[]</span><span class="_jsonSep svelte-mhivgo">,</span>
+      </li><li><span class="_jsonKey svelte-mhivgo">&quot;avatar&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
+        <span class="_jsonVal string svelte-mhivgo">""</span><span class="_jsonSep svelte-mhivgo">,</span>
+      </li><li><span class="_jsonKey svelte-mhivgo">&quot;avatarMimeType&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
+        <span class="_jsonVal string svelte-mhivgo">""</span><span class="_jsonSep svelte-mhivgo">,</span>
+      </li><li><span class="_jsonKey svelte-mhivgo">&quot;background&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
+        <span class="_jsonVal string svelte-mhivgo">""</span><span class="_jsonSep svelte-mhivgo">,</span>
+      </li><li><span class="_jsonKey svelte-mhivgo">&quot;backgroundMimeType&quot;</span><span class="_jsonSep svelte-mhivgo">:</span>
         <span class="_jsonVal string svelte-mhivgo">""</span>
       </li></ul>
   <span class="_jsonBkt svelte-mhivgo" role="button" tabindex="0">}</span></section></main></form>
@@ -72,7 +98,7 @@
 			
 			<script>
 				{
-					__sveltekit_k7esij = {
+					__sveltekit_4v9ec6 = {
 						env: {},
 						base: new URL(".", location).pathname.slice(0, -1),
 						element: document.currentScript.parentElement
@@ -81,10 +107,10 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.9389206d.js"),
-						import("./_app/immutable/entry/app.5109305b.js")
+						import("./_app/immutable/entry/start.d7f0b09f.js"),
+						import("./_app/immutable/entry/app.bf00f6a7.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_k7esij.element, {
+						kit.start(app, __sveltekit_4v9ec6.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
