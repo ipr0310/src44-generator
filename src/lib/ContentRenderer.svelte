@@ -29,7 +29,16 @@
 
 	$: if (data.sendRule) descriptorData.setSendRule(data.sendRule);
 
-	$: if (data.alias) descriptorData.setAlias(data.alias);
+	$: if (data.alias) {
+		try {
+			const formattedAlias = data.alias.split('.');
+			const builderAlias = DescriptorDataBuilder.create()
+				.setAlias(formattedAlias[0], formattedAlias[1] || '')
+				.build().alias;
+
+			if (builderAlias) descriptorData.setAlias(builderAlias);
+		} catch (e) {}
+	}
 
 	$: descriptorDataRawData = descriptorData.build().raw;
 
