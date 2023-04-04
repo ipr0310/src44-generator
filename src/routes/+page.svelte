@@ -3,6 +3,10 @@
 	import { createForm } from 'felte';
 	import { validator } from '@felte/validator-yup';
 	import { schema, initialValues } from '../lib/formSchema';
+	import poweredBySignumSvg from '../lib/assets/powered-by-signum.svg';
+	import signumJSSvg from '../lib/assets/signumjs.svg';
+	import svelteSvg from '../lib/assets/svelte.svg';
+	import githubSvg from '../lib/assets/github-mark.svg';
 
 	import FormFields from '../lib/FormFields.svelte';
 	import ContentRenderer from '../lib/ContentRenderer.svelte';
@@ -59,22 +63,22 @@
 				class="flex flex-row justify-center items-center gap-4 rounded-xl border-2 p-4 text-2xl font-bold text-gray-500"
 			>
 				<a href="https://github.com/signum-network/SIPs/blob/master/SIP/sip-44.md" target="_blank">
-					<img src="/powered-by-signum.svg" width="125" alt="Powered by Signum Logo" />
+					<img src={poweredBySignumSvg} width="125" alt="Powered by Signum Logo" />
 				</a>
 
 				<span> + </span>
 				<a href="https://docs.signum.network/signum/signumjs" target="_blank">
-					<img src="/signumjs.svg" width="50" alt="SignumJS Logo" />
+					<img src={signumJSSvg} width="50" alt="SignumJS Logo" />
 				</a>
 
 				<span> + </span>
 				<a href="https://kit.svelte.dev/" target="_blank">
-					<img src="/svelte.svg" width="50" alt="Powered by Signum Logo" />
+					<img src={svelteSvg} width="50" alt="Svelte Logo" />
 				</a>
 
 				<span> + </span>
 				<a href="https://github.com/ipr0310/src44-generator" target="_blank">
-					<img src="/github-mark.svg" width="50" alt="Github Repository" />
+					<img src={githubSvg} width="50" alt="Github Logo" />
 				</a>
 			</footer>
 
