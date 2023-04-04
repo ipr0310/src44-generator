@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { Address } from '@signumjs/core';
 	import debounce from 'lodash/debounce';
 	import FieldToggler from './FieldToggler.svelte';
 
-	const fieldName = 'receiverAddress';
+	const fieldName = 'sendRule';
 	export let setData: any;
 
 	let successText = '';
@@ -16,35 +15,27 @@
 	};
 
 	const handleInput = debounce(async (e) => {
-		const address = e.target.value.trim();
+		const sendRule = e.target.value.trim();
 
 		try {
-			if (!address) return resetField();
-
-			const accountAddress = Address.create(address);
-			const accountRSAddress = accountAddress.getReedSolomonAddress();
-			const accountId = accountAddress.getNumericId();
-
-			setData(fieldName, accountId);
-
-			successText = `${accountRSAddress} (ID: ${accountId}) ✅`;
-
-			errorText = '';
+			if (!sendRule) return resetField();
+			new RegExp(sendRule);
+			setData(fieldName, sendRule);
 		} catch (error: any) {
 			setData(fieldName, '');
-
 			successText = '';
-
 			errorText = error.message;
 		}
-	}, 500);
+	}, 300);
 </script>
 
-<FieldToggler fieldLabel="Address or account ID (Advanced)" onToggleField={resetField}>
+<FieldToggler fieldLabel="Send Rule (Advanced)" onToggleField={resetField}>
 	<div class="flex flex-col gap-2">
 		<input
 			on:input={handleInput}
-			placeholder="E.g. S-6SJC-..., 17332"
+			placeholder="E.g. /^[0-9a-fA-F]{64}$/"
+			type="text"
+			maxlength={64}
 			class="input input-bordered w-full"
 		/>
 

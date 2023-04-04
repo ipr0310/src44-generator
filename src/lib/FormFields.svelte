@@ -5,6 +5,8 @@
 	import TextField from './components/TextField.svelte';
 	import FileHashField from './components/FileHashField.svelte';
 	import AccountAddressField from './components/AccountAddressField.svelte';
+	import SendRuleField from './components/SendRuleField.svelte';
+	import SocialNetworkFields from './components/SocialNetworkFields.svelte';
 
 	export let data: typeof initialValues;
 	export let errors: any;
@@ -54,42 +56,7 @@
 		errorText={(errors.homePage && errors.homePage[0]) || ''}
 	/>
 
-	<div class="flex flex-col gap-2">
-		<h4 class="text-lg font-medium leading-tight">Social Networks</h4>
-		{#each data.socialNetworks as { }, index}
-			<div class="flex flex-row justify-between items-center gap-2">
-				<TextField
-					name="socialNetworks.{index}"
-					type="url"
-					maxlength={92}
-					errorText={errors.socialNetworks && errors.socialNetworks[index]
-						? errors.socialNetworks[index]
-						: ''}
-					placeholder="Enter your preferred social media platform URL"
-				/>
-
-				<button on:click={unsetField(`socialNetworks.${index}`)} class="btn btn-sm btn-error h-12">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						class="h-6 w-6"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						><path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							d="M6 18L18 6M6 6l12 12"
-						/></svg
-					>
-				</button>
-			</div>
-		{/each}
-
-		{#if data.socialNetworks.length < 3}
-			<button on:click={addField('socialNetworks', '')} class="btn btn-primary btn-sm">Add</button>
-		{/if}
-	</div>
+	<SocialNetworkFields {data} {errors} {addField} {unsetField} />
 
 	<FileHashField
 		fieldValue={data.avatar}
@@ -107,37 +74,9 @@
 		{setData}
 	/>
 
-	<AccountAddressField fieldName="receiverAddress" {setData} />
+	<AccountAddressField {setData} />
 
-	<FieldToggler
-		fieldLabel="Send Rule (Advanced)"
-		onToggleField={() => {
-			setData('sendRule', '');
-		}}
-	>
-		<TextField
-			name="sendRule"
-			placeholder="E.g. /^[0-9a-fA-F]{64}$/"
-			type="text"
-			maxlength={64}
-			errorText={(errors.sendRule && errors.sendRule[0]) || ''}
-		/>
-	</FieldToggler>
-
-	<FieldToggler
-		fieldLabel="Send Rule (Advanced)"
-		onToggleField={() => {
-			setData('sendRule', '');
-		}}
-	>
-		<TextField
-			name="sendRule"
-			placeholder="E.g. /^[0-9a-fA-F]{64}$/"
-			type="text"
-			maxlength={64}
-			errorText={(errors.sendRule && errors.sendRule[0]) || ''}
-		/>
-	</FieldToggler>
+	<SendRuleField {setData} />
 
 	<FieldToggler
 		fieldLabel="Signum Alias (Advanced)"
@@ -149,7 +88,7 @@
 			name="alias"
 			placeholder="E.g. myalias"
 			type="text"
-			maxlength={100}
+			maxlength={141}
 			errorText={(errors.alias && errors.alias[0]) || ''}
 		/>
 	</FieldToggler>

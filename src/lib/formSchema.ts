@@ -17,8 +17,7 @@ export const schema = yup.object({
 	sendRule: yup.string().trim().max(64),
 	alias: yup
 		.string()
-		.nullable()
-		.max(100)
+		.max(141)
 		.matches(/^\w+(\.\w+)?$/, { message: 'Invalid field', excludeEmptyString: true })
 });
 

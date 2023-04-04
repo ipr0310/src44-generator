@@ -16,27 +16,28 @@
 		'image/svg+xml'
 	];
 
-	let isSearchingFile = false;
 	let isImageValid = false;
 	let showField = false;
 	let errorText = '';
 
-	const toggle = () => {
-		isSearchingFile = false;
+	const resetField = () => {
 		isImageValid = false;
-		showField = !showField;
 		errorText = '';
 
 		setData(fieldName, '');
 		setData(fieldMimeTypeName, '');
 	};
 
+	const toggle = () => {
+		showField = !showField;
+		resetField();
+	};
+
 	const handleInput = debounce(async (e) => {
 		const fileHash = e.target.value.trim();
 
 		try {
-			if (!fileHash) return;
-			isSearchingFile = true;
+			if (!fileHash) return resetField();
 
 			if (!cid(fileHash)) throw new Error('Invalid');
 
@@ -54,14 +55,13 @@
 
 			isImageValid = true;
 			errorText = '';
+			setData(fieldName, fileHash);
 			setData(fieldMimeTypeName, mimeType);
 		} catch (error: any) {
 			isImageValid = false;
 			errorText = error.message;
+			setData(fieldName, '');
 			setData(fieldMimeTypeName, '');
-		} finally {
-			setData(fieldName, fileHash);
-			isSearchingFile = false;
 		}
 	}, 500);
 </script>
@@ -75,7 +75,6 @@
 	<div class="flex flex-row justify-between items-center gap-2">
 		<div class="flex flex-col w-full">
 			<input
-				name={fieldName}
 				on:input={handleInput}
 				placeholder="Enter the IPFS CID or Hash of the picture"
 				class="input input-bordered w-full"
